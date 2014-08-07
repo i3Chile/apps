@@ -1,0 +1,18 @@
+.l-header .w-nav-item {
+	font-family: 'Roboto';
+	font-weight: 400;
+	}
+body {
+	font-family: 'PT Sans';
+	font-weight: 400;
+	}
+h1, h2, h3, h4, h5, h6,
+.w-counter-number,
+.w-pricing-item-price,
+.w-tabs-item-title {
+	font-family: 'Roboto';
+	font-weight: 300;
+	}
+.w-logo-title {
+	font-family: 'Roboto';
+	}

@@ -1,0 +1,137 @@
+.l-body,
+.l-main {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	}
+
+.l-submain {
+	float: left;
+	height: 100%;
+	width: 20%;
+	position: relative;
+	z-index: 1;
+	font-size: 0;
+	text-align: center;
+	text-decoration: none;
+	background-color: #fff;
+	}
+.l-submain.for_logo {
+	display: none;
+	}
+	.l-submain.for_logo:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+		margin-left: -0.25em;
+		}
+	.l-submain-content {
+		display: inline-block;
+		vertical-align: middle;
+		width: 88%;
+		}
+		.l-submain-content-logo {
+			font: 300 30px/40px 'Roboto Slab', sans-serif;
+			margin-bottom: 2px;
+			color: #fff;
+			}
+			.l-submain-content-logo span {
+				color: #ff5842;
+				}
+		.l-submain-content-text {
+			display: none;
+			font: 300 15px/24px 'Roboto Slab', sans-serif;
+			color: #666;
+			}
+	.l-submain-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 11;
+		background-color: rgba(255,255,255,0.67);
+		-webkit-transition: background-color 0.5s ease;
+				transition: background-color 0.5s ease;
+		}
+		.l-submain:hover .l-submain-overlay {
+			background-color: transparent;
+			}
+	.l-submain-image {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		-webkit-transition: top 4.5s ease;
+				transition: top 4.5s ease;
+		}
+		.l-submain.for_agency:hover .l-submain-image {
+			top: -125%;
+			}
+		.l-submain.for_mobile:hover .l-submain-image {
+			top: -97%;
+			}
+		.l-submain.for_personal:hover .l-submain-image {
+			top: -97%;
+			}
+		.l-submain.for_event:hover .l-submain-image {
+			top: -85%;
+			}
+		.l-submain.for_startup:hover .l-submain-image {
+			top: -50%;
+			}
+	.l-submain-block {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		height: 100px;
+		width: 100%;
+		margin-top: -50px;
+		z-index: 12;
+		background-color: rgba(0,0,0,0.9);
+		color: #fff;
+		-moz-box-sizing: border-box;
+			 box-sizing: border-box;
+		-webkit-transition: opacity 0.5s ease;
+				transition: opacity 0.5s ease;
+		}
+		.l-submain:hover .l-submain-block {
+			opacity: 0;
+			}
+		.l-submain-block-text {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			font: 300 24px/30px 'Roboto Slab', sans-serif;
+			height: 56px;
+			width: 100%;
+			margin-top: -28px;
+			}
+			.l-submain-block-text span {
+				display: block;
+				font: 300 13px/18px 'Roboto Slab', sans-serif;
+				margin-top: 5px;
+				color: #fda527;
+				}
+
+@media (max-width: 900px) {
+.l-submain {
+	float: none;
+	height: 20%;
+	width: 100%;
+	}
+	.l-submain-image {
+		display: none;
+		}
+	.l-submain-block {
+		position: relative;
+		top: 0;
+		height: 20%;
+		width: 100%;
+		margin-top: 0;
+		}
+		.l-submain:hover .l-submain-block {
+			opacity: 1;
+			}
+}
