@@ -65,25 +65,13 @@ else
 					 <div id="formulario">
 						<form method="POST" action="return false" id="datos">
 				            <div id="resultado"></div>
-				           		Email: <input type="text" name="user" id="user" value="" placeholder="USUARIO"><br/>
-				            	 Clave:<input type="text" name="pass" id="pass" value="" placeholder="*******"><br/>
-				            	<button onclick="Validar(document.getElementById('user').value, document.getElementById('pass').value);">ENTRAR</button><br/>
+				           		Email: <input type="text" name="user" id="user" value="" placeholder="usuario"><br/>
+				            	 Clave:<input type="password" name="pass" id="pass" value="" placeholder="*******"><br/>
+				            	<button id="loginBtn">ENTRAR</button><br/>
        						
        					 </form>
 				
-					 <script>
-        function Validar(user, pass)
-        {
-            $.ajax({
-                url: "php/validar.php",
-                type: "POST",
-                data: "user="+user+"&pass="+pass,
-                success: function(resp){
-                    $('#resultado').html(resp)
-                }        
-            });
-        }
-        </script>
+					 
         </div>
          </div>
 				<br/><br/>
@@ -121,7 +109,31 @@ else
 					</div>
 				 </div>
 	
-</section>	
+</section>
+<script>
+	function Validar(user, pass)
+	{
+		var result = false;
+		$.ajax({
+			url: "php/validar.php",
+			type: "POST",
+			data: "user="+user+"&pass="+pass,
+			success: function(resp){
+				$('#resultado').html(resp)
+				result = true;
+			}        
+		});
+		
+		
+	}
+	$(document).ready(function(){
+		$("#loginBtn").click(function(e){
+			if(!Validar($("#user").val(), $("#pass").val())){
+				e.preventDefault();
+			}
+		});
+	});
+</script>	
 </body>
 </html>
 <?php
