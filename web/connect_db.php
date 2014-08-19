@@ -1,6 +1,7 @@
 <?php
     session_start();
     
+    
 	define("error01", "No se pudo conectar a la SQL - Error 001.");
     define("error02", "Contraseña y/o Usuario inconecto - Error 002.");
     define("error03", "No se pudo procesar el registro - Error 003.");
