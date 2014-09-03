@@ -17,7 +17,7 @@ class CtrlLogin extends CI_Controller {
 		$this->Usuario->setPassword($this->input->post('pass'));
 		$r=$this->Usuario->Login();
 		if($r==true){
-			echo "buenooooo si sabe";
+			$this->load->view("datos");
 		}else{
 			echo "maloooooo no sabe";
 		}
@@ -33,11 +33,13 @@ class CtrlLogin extends CI_Controller {
 		$this->Usuario->setRut($this->input->post('rut'));
 		$r=$this->Usuario->Registro();
 		if($r==true){
-			$this->load->view("login");
-			echo "registro exitoso";
+                    $rt="registro exitoso";
+			$this->load->view("login",$rt);
+			 
 		}else{
+                    echo "<scrip>registro fallido</scrip>";
 			$this->load->view("login");
-			echo "registro fallido";
+			
 			}
 	}
 }

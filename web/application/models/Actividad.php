@@ -3,7 +3,7 @@
 
 	class Actividad extends CI_Model {
 
-		private $id, $nombre, $fecha, $riesgo, lugar;
+		private $id, $nombre, $fecha, $riesgo, $lugar;
 
 //id
 		public function getId()
@@ -46,7 +46,7 @@
 		}
 //lugar
 		
-		public function setLugar($valor=new Lugar)
+		public function setLugar($valor)
 		{
 
 			$this->lugar=$valor;
@@ -54,22 +54,22 @@
 
 //metodo crear()
 		public function Crear(){
-			$data=array{
+			$data=array(
 					'Id'=>$this->id,
 					'Nombre'=>$this->nombre,
 					'Fecha'=>$this->email,
 					'Riesgo'=>$this->riesgo
-					};
+					);
 
 			$this->db->insert('Actividad',$data);
 
 
-			$data=array{
+			$data=array(
 					'Id'=>$this->id,
 					'Nombre'=>$this->nombre,
 					'Fecha'=>$this->email,
 					'Riesgo'=>$this->riesgo
-					};
+					);
 
 			$this->db->insert('Actividad',$data);
 
@@ -81,6 +81,6 @@
 
 		}
 
-	}
+	
 
 ?>
