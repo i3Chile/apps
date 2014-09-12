@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class CtrlLogin extends CI_Controller {
+class CtrlDatos extends CI_Controller {
 
 	public function index()
 	{
@@ -8,15 +8,16 @@ class CtrlLogin extends CI_Controller {
 		$this->load->model("modelo");
 		$this->Usuario->setRut($this->session->userdata('rut'));
 		$r=$this->Usuario->cargar();
-		foreach($r as $obj){
+		  foreach ($r->result() as $row) {
+           
 		$misdato=array('nombre'=>$r->Nombre,
-						'apellido'=>$r->Apellido,
-						'rut'=>$r->Rut,
-						'Email'=>$r->Apellido,
-						'profecion'=>$r->Profecion,
-						'fecha'=>$r->FechaNacimiento,
-						'estado'=>$r->EstadoCivil,
-						'empresa'=>$r->Empresa
+						'apellido'=>$row->Apellido,
+						'rut'=>$row->Rut,
+						'Email'=>$row->Apellido,
+						'profecion'=>$row->Profecion,
+						'fecha'=>$row->FechaNacimiento,
+						'estado'=>$row->EstadoCivil,
+						'empresa'=>$row->Empresa
 						);
 			$this->load->view("datos",$misdato);
                 }
@@ -28,12 +29,17 @@ class CtrlLogin extends CI_Controller {
 		//$this->form_validation->set_rules('user', 'uswer', 'required');
 		//$this->form_validation->set_rules('pass', 'pass','required|min_length[5]');
 		$this->load->model("Usuario");
-                
-		$this->Usuario->setEmail($this->input->post('user'));
-		$this->Usuario->setPassword($this->input->post('pass'));
-		$r=$this->Usuario->cargar();
+                $this->Usuario->setNombre($this->input->post('nombre'));
+                $this->Usuario->setRut($this->input->post('rut'));
+                $this->Usuario->setApellido($this->input->post('apellido'));
+                $this->Usuario->setFecha_nacimiento($this->input->post('fecha'));
+                $this->Usuario->setProfecion($this->input->post('profe'));
+                $this->Usuario->setEstado_civil($this->input->post('estado'));
+                $this->Usuario->setEmpresa($this->input->post('empresa'));
+                $this->Usuario->setEmail($this->input->post('email'));
+                $r=$this->Usuario->Actualizar();
 		if($r==true){
-			$this->load->view("usuario");
+			$this->load->view("datos");
 		}
 	}
 }

@@ -1,86 +1,75 @@
 <?php
 
+class Actividad extends CI_Model {
 
-	class Actividad extends CI_Model {
+    private $id, $nombre, $fecha, $riesgo, $lugar;
+    function __construct($id, $nombre, $fecha, $riesgo, $lugar) {
+        $this->id = $id;
+        $this->nombre = $nombre;
+        $this->fecha = $fecha;
+        $this->riesgo = $riesgo;
+        $this->lugar = new Lugar();
+        $this->lugar = $lugar;
+    }
 
-		private $id, $nombre, $fecha, $riesgo, $lugar;
-
+    
 //id
-		public function getId()
-		{
-			return $this->id;
-		}
-		public function setId($valor)
-		{
-			$this->id=$valor;
-		}
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($valor) {
+        $this->id = $valor;
+    }
 
 //nombre
-		public function getNombre()
-		{
-			return $this->nombre;
-		}
-		public function setNombre($valor)
-		{
-			$this->nombre=$valor;
-		}
+    public function getNombre() {
+        return $this->nombre;
+    }
+
+    public function setNombre($valor) {
+        $this->nombre = $valor;
+    }
 
 //fecha
-		public function getFecha()
-		{
-			return $this->fecha;
-		}
-		public function setFecha($valor)
-		{
-			$this->Fecha=$valor;
-		}
+    public function getFecha() {
+        return $this->fecha;
+    }
+
+    public function setFecha($valor) {
+        $this->Fecha = $valor;
+    }
 
 //Riesgo
-		public function getRiesgo()
-		{
-			return $this->riesgo;
-		}
-		public function setRiesgo($valor)
-		{
-			$this->riesgo=$valor;
-		}
-//lugar
-		
-		public function setLugar($valor)
-		{
+    public function getRiesgo() {
+        return $this->riesgo;
+    }
 
-			$this->lugar=$valor;
-		}
+    public function setRiesgo($valor) {
+        $this->riesgo = $valor;
+    }
+
+//lugar
+
+    public function setLugar($valor) {
+
+        $this->lugar = $valor;
+    }
 
 //metodo crear()
-		public function Crear(){
-			$data=array(
-					'Id'=>$this->id,
-					'Nombre'=>$this->nombre,
-					'Fecha'=>$this->email,
-					'Riesgo'=>$this->riesgo
-					);
+    public function Crear() {
+      
 
-			$this->db->insert('Actividad',$data);
+        $this->db->insert('Actividad', $data);
+        $data = array(
+            'Nombre' => $this->nombre,
+            'Fecha' => $this->email,
+            'Riesgo' => $this->riesgo
+        );
 
+        $this->db->insert('Actividad', $data);
+    }
 
-			$data=array(
-					'Id'=>$this->id,
-					'Nombre'=>$this->nombre,
-					'Fecha'=>$this->email,
-					'Riesgo'=>$this->riesgo
-					);
-
-			$this->db->insert('Actividad',$data);
-
-
-			}
-
-
-
-
-		}
-
-	
+}
 
 ?>
