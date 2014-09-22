@@ -124,6 +124,7 @@
                             <img src="/img/2.png" alt=""  style="mask: 2300px; height: 388px;margin-top: -141px;"  >
                         </div>
                     </div>
+                </div>
             </section>
 
             <!-- section: ABOUT -->
@@ -138,33 +139,46 @@
                         <div>
                             <h2 class="titulo" id="titulo">Mis Actividad</h2>
                             <div id="resultado3">prueba de conexion</div>
-                            <form method="POST" action="return false" onsubmit="return false">
                                 <div class="g-cols offset_default"> 
                                     <div class="one-half">
 
                                         <?php
-                                        $this->load->helper('url');
-                                        echo form_open('ctrlactividad/guardar');
+                                        echo validation_errors();
+                                        echo form_open("ctrlactividad/guardar");
+            //nombre
+                                        echo form_label('<strong>Nombre</strong>'), "<br/>";
+                                        echo form_input(array('name' => 'nombre1')), "<br/>";
+            //fecha
                                         echo form_label('<strong>Fecha</strong>'), "<br/>";
                                         echo form_input(array('name' => 'fecha')), "<br/>";
+           /* //hora                           
                                         echo form_label('<strong>Hora</strong>'), "<br/>";
                                         echo form_input(array('name' => 'hora')), "<br/>";
+           */ //lugar                           
                                         echo form_label('<strong>Lugar</strong>'), "<br/>";
                                         echo form_input(array('name' => 'lugar')), "<br/>";
+            //responsable                            
                                         echo form_label('<strong>Responsable</strong>'), "<br/>";
                                         echo form_input(array('name' => 'resp')), "<br/>";
+            //epp                            
                                         echo form_label('<strong>Equipo de proteccion personal:</strong>');
                                         echo form_label('<strong>Cantidad</strong>','', array('style'=>' margin: 455px;')), "<p></p><ul>";
+                            //Casco
                                         echo '<p>',form_label('Casco','', array('class'=> 'lab1'));
                                         echo form_input(array('name' => 'casco', 'style' => 'width: 50px;')), "</p>";
+                            //Guante
                                         echo '<p>',form_label('Guante','', array('class'=> 'lab1'));
                                         echo form_input(array('name' => 'guante', 'style' => 'width: 50px;')), "</p>";
+                            //Antiparra
                                         echo '<p>',form_label('Amtiparra','', array('class'=> 'lab1'));
                                         echo form_input(array('name' => 'antiparra', 'style' => 'width: 50px;')), "</p>";
+                            //Mascarilla
                                         echo '<p>',form_label('Mascarilla','', array('class'=> 'lab1'));
                                         echo form_input(array('name' => 'mascarilla', 'style' => 'width: 50px;')), "</p>";
+                            //Zapatos
                                         echo'<p>', form_label('Zapatos de Seguridad','', array('class'=> 'lab1'));
-                                        echo form_input(array('name' => 'sapato', 'style' => 'width: 50px;')), "</p>";
+                                        echo form_input(array('name' => 'zapato', 'style' => 'width: 50px;')), "</p>";
+                            //otros
                                         echo'<p>', form_label('Otros','', array('class'=> 'lab1'));
                                         echo form_input(array('name' => 'otro', 'style' => 'width: 278px; float: none;'));
                                         echo form_input(array('name' => 'otroc', 'style' => 'width: 50px;')), "</p></ul><br/><br/><br/>";
@@ -186,11 +200,14 @@
                                                 echo form_input(array('name' => 'nombre[]')), "<br/>";
                                                 echo form_label('Cargo'), "<br/>";
                                                 echo form_input(array('name' => 'cargo[]')), "<br/>";
-                                               
+                                                
                                                 ?></ul></ul>
 
                                         </div>  
-                                        <input class="g-btn color_primary outlined" type="submit" value="AGREGAR" onclick="agregar();">
+                                        <?php
+                                         echo form_submit(array('value' => 'Agregar','onclick'=>'agregar();')),"<br/>";
+                                        ?>
+                                        
                                     </div>         
                                 </div >   
                                
@@ -214,7 +231,7 @@
             <div class="l-border at_left"></div>
 
             <a class="w-toplink" href="#"><i class="fa fa-angle-up"></i></a>
-
+        </div>
             <script type="text/javascript" src="/js/mediaelement-and-player.js"></script>
             <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
             <script type="text/javascript" src="/js/jquery.isotope.js"></script>

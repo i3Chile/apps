@@ -2,17 +2,22 @@
 
 class Actividad extends CI_Model {
 
-    private $id, $nombre, $fecha, $riesgo, $lugar;
-    function __construct($id, $nombre, $fecha, $riesgo, $lugar) {
-        $this->id = $id;
-        $this->nombre = $nombre;
-        $this->fecha = $fecha;
-        $this->riesgo = $riesgo;
-        $this->lugar = new Lugar();
-        $this->lugar = $lugar;
+    private $id, $nombre, $fecha, $riesgo, $lugar ,$rut;
+
+    /* function Actividad() {
+      require_once 'Lugar.php';
+      $this->lugar = new Lugar();
+
+      } */
+    public function getRut() {
+        return $this->rut;
     }
 
-    
+    public function setRut($rut) {
+        $this->rut = $rut;
+    }
+
+
 //id
     public function getId() {
         return $this->id;
@@ -37,7 +42,7 @@ class Actividad extends CI_Model {
     }
 
     public function setFecha($valor) {
-        $this->Fecha = $valor;
+        $this->fecha= $valor;
     }
 
 //Riesgo
@@ -56,19 +61,33 @@ class Actividad extends CI_Model {
         $this->lugar = $valor;
     }
 
+    public function getLugar() {
+        return $this->lugar;
+    }
+
 //metodo crear()
     public function Crear() {
-      
 
-        $this->db->insert('Actividad', $data);
         $data = array(
             'Nombre' => $this->nombre,
-            'Fecha' => $this->email,
-            'Riesgo' => $this->riesgo
+            'Fecha' => $this->fecha,
+            'Riesgo' => $this->riesgo,
+            'IDlugar' => $this->lugar,
+            'RutUsuario'=>  $this->rut
+                
         );
 
         $this->db->insert('Actividad', $data);
+        $this->id = $this->db->insert_id();
+        return $this->db->insert_id();
+        ;
     }
+    
+   public function Ver() {
+       $this->db->where ('RutUsuario' , $this->rut) ;
+       $query = $this->db->get('actividad');
+       return $query;
+   }
 
 }
 

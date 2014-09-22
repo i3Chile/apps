@@ -39,7 +39,7 @@ class CtrlDatos extends CI_Controller {
                 $this->Usuario->setEmail($this->input->post('email'));
                 $r=$this->Usuario->Actualizar();
 		if($r==true){
-			$this->load->view("datos");
+			$this->load->view("Actividad");
 		}
 	}
 }

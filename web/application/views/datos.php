@@ -61,7 +61,7 @@
 
 
                         <li class="w-nav-item level_1">
-                            <a class="w-nav-anchor level_1" href="/ctrldatos">
+                            <a class="w-nav-anchor level_1" href="/ctrldatos/index">
                                 <span class="w-nav-title">Mis Datos</span>
                                 <span class="w-nav-arrow"></span>
                             </a>

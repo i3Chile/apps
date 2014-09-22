@@ -76,12 +76,9 @@ class Lugar extends CI_Model {
             'Cordenada' => $this->cordenada,
             'Direccion' => $this->direccion
         );
-        $this->db->insert('lugar', $data);
-       $ri= $This-> db-> insert_id ();
-        return $ri;
-         
-         
-         
+        $this->db->insert('lugar', $data);  
+       
+        return $this->db->insert_id();
      }
 }
 

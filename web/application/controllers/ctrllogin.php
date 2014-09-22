@@ -8,7 +8,7 @@ class CtrlLogin extends CI_Controller {
 
     public function index() {
         
-        $this->load->view("login");
+        $this->load->view("actividad");
     }
 
     public function login() {
@@ -52,10 +52,9 @@ class CtrlLogin extends CI_Controller {
         $this->Usuario->setRut($this->input->post('rut'));
         $r = $this->Usuario->Registro();
         if ($r == true) {
-            $rt = "registro exitoso";
-            $this->load->view("login", $rt);
+            
+            $this->load->view("login");
         } else {
-            echo "<scrip>registro fallido</scrip>";
             $this->load->view("login");
         }
     }

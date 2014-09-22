@@ -158,6 +158,7 @@ class Usuario extends CI_Model {
 
         $this->db->where('Rut', $this->rut);
         $this->db->update('Usuario', $data);
+        return true;
     }
 
 //metodo cargar datos

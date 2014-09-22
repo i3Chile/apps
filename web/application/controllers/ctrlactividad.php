@@ -1,24 +1,60 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
-class CtrlActovidad extends CI_Controller {
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
-	public function index()
-	{
-			$this->load->view("actividad");
+class CtrlActividad extends CI_Controller {
 
-	}
+    public function index() {
+        $this->load->view("actividad");
+    }
 
-	public function guardar(){
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('user', 'user', 'required');
-	
-		$this->load->model("Usuario");
-		$this->Usuario->setEmail($this->input->post('user'));
-		$this->Usuario->setPassword($this->input->post('pass'));
-		$r=$this->Usuario->cargar();
-		if($r==true){
-			$this->load->view("usuario");
+    public function guardar() {
 
-		}
-	}
+        //$this->load->library('form_validation');
+        //$this->form_validation->set_rules('user', 'user', 'required');
+        $this->load->model("lugar");
+
+        $this->lugar->setNombre($this->input->post('lugar'));
+        $id = $this->lugar->guardar();
+        $this->load->model("Actividad");
+        $this->Actividad->setLugar($id);
+        $this->Actividad->setNombre($this->input->post('nombre1'));
+        $this->Actividad->setFecha($this->input->post('fecha'));
+        $this->Actividad->setRiesgo($this->input->post('riesgos'));
+        $this->Actividad->setRut($this->session->userdata('rut'));
+        $id = $this->Actividad->Crear();
+
+        $this->load->model("Epp");
+        $this->Epp->setId($id);
+        $this->Epp->setCasco($this->input->post('casco'));
+        $this->Epp->setGuante($this->input->post('guante'));
+        $this->Epp->setAntiparra($this->input->post('antiparra'));
+        $this->Epp->setZapatos($this->input->post('zapato'));
+        $this->Epp->setOtros($this->input->post('otro'));
+        $this->Epp->setOtrosc($this->input->post('otroc'));
+        $this->Epp->setMascarilla($this->input->post('mascarilla'));
+        $this->Epp->Guardar();
+
+        /*
+          $this->load->model("Trabajador");
+          $nombre=$this->input->post('nombre');
+          $cargo=$this->input->post('cargo');
+          for ($i=0;$i<=count($nombre);$i++){
+          $this->Trabajador->getNombre($nombre[$i]);
+          $this->Trabajador->getCargo($cargo[$i]);
+          }
+
+         */
+    }
+
+    public function Editar() {
+        
+    }
+
+    public function eliminar() {
+        
+    }
+
 }

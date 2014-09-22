@@ -6,7 +6,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.jpg">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg">
 
         <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700">
         <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700">
@@ -19,7 +19,6 @@
         <link rel="stylesheet" type="text/css" media="all" href="/css/style.css">
         <link rel="stylesheet" type="text/css" media="all" href="/css/animation.css">
         <link rel="stylesheet" type="text/css" media="all" href="/css/responsive.css">
-        <link href="/iccs/tema.css" rel="stylesheet">
         <script type="text/javascript" src="/js/modernizr.js"></script>
         <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
         <link href="/ccs/tema.css" rel="stylesheet" type="text/css"/>
