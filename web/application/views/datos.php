@@ -54,7 +54,7 @@
 
                     <ul class="w-nav-list level_1">
                         <li class="w-nav-item level_1 has_sublevel">
-                            <a class="w-nav-anchor level_1" href="index_usuario.php" style="margin-left: 270px;">
+                            <a class="w-nav-anchor level_1" href="/ctrldatos/Usuario" style="margin-left: 270px;">
                                 <span class="w-nav-title">Inicio</span>
                                 <span class="w-nav-arrow"></span>
                             </a>
@@ -68,7 +68,7 @@
                         </li>
 
                         <li class="w-nav-item level_1">
-                            <a class="w-nav-anchor level_1" href="actividad.php">
+                            <a class="w-nav-anchor level_1" href="/ctrldatos/Actividad">
                                 <span class="w-nav-title">Mis Actividades</span>
                                 <span class="w-nav-arrow"></span>
                             </a>
@@ -132,7 +132,7 @@
                                     echo form_label('<strong>Apellido</strong>'), "<br/>";
                                     echo form_input(array('name' => 'apellido', 'value' => $apellido)), "<br/>";
                                     echo form_label('<strong>Rut</strong>'), "<br/>";
-                                    echo form_input(array('name' => 'rut', 'value' => $rut)), "<br/>";
+                                    echo form_input(array('name' => 'rut', 'value' => $rut,'disabled'=>'true')), "<br/>";
                                     echo form_label('<strong>Email</strong>'), "<br/>";
                                     echo form_input(array('name' => 'email', 'value' => $email)), "<br/>";
                                     echo form_label('<strong>Profecion</strong>'), "<br/>";

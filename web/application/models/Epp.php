@@ -87,7 +87,7 @@ class Epp extends CI_Model {
 
 //metodo guardar
     public function Guardar() {
-       echo $this->otros;
+     
         $rt=$this->otros;
         $rt.='/';
         $rt.=$this->otrosc;
@@ -99,11 +99,29 @@ class Epp extends CI_Model {
             'Antiparra' => $this->antiparra,
             'Mascarilla' => $this->mascarilla,
             'Zapatos' => $this->zapatos,
+            'Otros' => $rt       
+        );
+        $this->db->insert('epp', $data);
+        
+    }
+
+    public function Actualizar() {
+     
+        $rt=$this->otros;
+        $rt.='/';
+        $rt.=$this->otrosc;
+        echo $rt;
+        $data = array(
+            'Casco' => $this->casco,
+            'Guante' => $this->guante,
+            'Antiparra' => $this->antiparra,
+            'Mascarilla' => $this->mascarilla,
+            'Zapatos' => $this->zapatos,
             'Otros' => $rt
                 
         );
-        $this->db->insert('epp', $data);
-        ECHO 'GUARDO EPP';
+        $this->db->where('IdActividad', $this->id);
+        $this->db->update('epp', $data);
+       
     }
-
 }

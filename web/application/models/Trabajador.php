@@ -67,5 +67,26 @@ class Trabajador extends CI_Model {
          
      }
 
+     public function Actualizar(){
+        $data = array(
+            'IDActividad' => $this->id,
+            'Nombre' => $this->nombre,
+            'Apellido' => $this->apellido,
+            'Email' => $this->email,
+            'Cargo' => $this->cargo
+        );
+        $this->db->where('IdActividad', $this->id);
+        $this->db->update('trabajador', $data);
+        return $ri;
+         
+         
+         
+     }
+      public function contar() {
+        $this->db->where('IDActividad', $this->id);
+        $query = $this->db->get('trabajador');
+        return $query->num_rows();
+        
+    }
     
 }

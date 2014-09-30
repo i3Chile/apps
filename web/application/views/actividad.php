@@ -67,21 +67,21 @@
 
                     <ul class="w-nav-list level_1">
                         <li class="w-nav-item level_1 has_sublevel">
-                            <a class="w-nav-anchor level_1" href="index_usuario.php" style="margin-left: 270px;">
+                            <a class="w-nav-anchor level_1" href="/CtrlActividad/Usuario" style="margin-left: 270px;">
                                 <span class="w-nav-title">Inicio</span>
                                 <span class="w-nav-arrow"></span>
                             </a>
 
 
                         <li class="w-nav-item level_1">
-                            <a class="w-nav-anchor level_1" href="datos.php">
+                            <a class="w-nav-anchor level_1" href="<?php echo base_url("/CtrlActividad/Datos");?>">
                                 <span class="w-nav-title">Mis Datos</span>
                                 <span class="w-nav-arrow"></span>
                             </a>
                         </li>
 
                         <li class="w-nav-item level_1">
-                            <a class="w-nav-anchor level_1" href="actividad.php">
+                            <a class="w-nav-anchor level_1" href="<?php echo base_url("/CtrlActividad/Index");?>">
                                 <span class="w-nav-title">Mis Actividades</span>
                                 <span class="w-nav-arrow"></span>
                             </a>
@@ -205,7 +205,7 @@
 
                                         </div>  
                                         <?php
-                                         echo form_submit(array('value' => 'Agregar','onclick'=>'agregar();')),"<br/>";
+                                         echo form_submit(array('value' => 'Agregar','onclick'=>'agregar();', 'href'=>'#','action'=>'#')),"<br/>";
                                         ?>
                                         
                                     </div>         

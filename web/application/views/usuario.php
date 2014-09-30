@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Somos Safeman's</title>
-
+        <link href="/ccs/ja.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg">
@@ -29,19 +29,9 @@
         <!-- FONT STYLE -->
         <link rel="stylesheet" type="text/css" media="all" href="/css/fonts/font_personal.css">
 
-
-
-        <!-- tabla -->
-        <link href="/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
-        <link href="/Scripts/jtable/themes/lightcolor/orange/jtable.css" rel="stylesheet" type="text/css" />
-
-        <script src="/scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
-        <script src="/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-        <script src="/Scripts/jtable/jquery.jtable.js" type="text/javascript"></script>
-
     </head>
     <body class="l-body header_sticky one_page_home rounded_corners no_logo">
-        <!-- Preloader screen -->
+        <!-- 
         <div class='l-preloader'>
             <div class='l-preloader-spinner'>
                 <div class='w-preloader type_6'>
@@ -50,11 +40,11 @@
             </div>
         </div>
 
-        <!-- HEADER -->
+        <!-- 
         <div class="l-header type_transparent">
             <div class="l-header-h i-cf">
 
-                <!-- nav -->
+                <!-- 
                 <nav class="w-nav layout_hor touch_disabled">
 
                     <div class="w-nav-control">
@@ -99,21 +89,19 @@
                 </nav>
 
             </div>
+
         </div>
         <!-- /HEADER -->
 
-        <!-- MAIN -->
+        <!-- 
         <div class="l-main">
 
-            <!-- section: HOME -->
+            <!-- 
             <section id="home" class="l-section full_screen color_primary parallax_ver with_overlay valigns_center">
                 <div class="l-section-img cover" style="background-image: url(img/parallax.png)"></div>
                 <div class="l-section-video"></div>
                 <div class="l-section-overlay"></div>
                 <div class="l-section-h g-html i-cf"></div>
-
-
-
                 <div class="w-socials size_normal align_center">
                     <div class="w-socials-list">
                         <p>"tab"</p>
@@ -123,55 +111,31 @@
             </section>
 
 
-           <div id="PeopleTableContainer" style="width: 600px;"></div>
-            <script type="text/javascript">
+            <header>
+                <h1 class="titulo">Actividades</h1>
+            </header>
+--><div class="datagrid">
+            <?php
+            $this->table->set_heading('','ID', 'Fecha', 'Nombre', 'Responsable', "lugar", "trabajadores", "Accion");
+            $tmp = array('table_open' => '<table>'); //modifica el espaciado
+            $this->table->set_template($tmp);
+            $array=array();
+            foreach ($results->result() as $dato):
+                $array['ID'] = $dato->ID;
+                $array['Fecha'] = $dato->Fecha;
+                $array['Nombre'] = $dato->Nombre;
+                $array['Responsable'] = $dato->Responsable;
+                $array['Lugar'] = $dato->IDlugar;
+                $array['Trabajadores'] = $dato->ID;
+                $array['Accion'] = $dato->ID; //esto genera un link con el mismo nombre.
+                $this->table->add_row($array); //agregamos la celda a la tabla por cada iteracion
+            endforeach;
 
-                    $(document).ready(function () {
+            echo $this->table->generate(); //cuando termina generamos la tabla a partir del vector
 
-                        //Prepare jTable
-                            $('#PeopleTableContainer').jtable({
-                                    title: 'Table of people',
-                                    paging: true,
-                                    pageSize: 2,
-                                    sorting: true,
-                                    defaultSorting: 'Name ASC',
-                                    actions: {
-                                            listAction: 'PersonActionsPagedSorted.php?action=list',
-                                            createAction: 'PersonActionsPagedSorted.php?action=create',
-                                            updateAction: 'PersonActionsPagedSorted.php?action=update',
-                                            deleteAction: 'PersonActionsPagedSorted.php?action=delete'
-                                    },
-                                    fields: {
-                                            PersonId: {
-                                                    key: true,
-                                                    create: false,
-                                                    edit: false,
-                                                    list: false
-                                            },
-                                            Name: {
-                                                    title: 'Author Name',
-                                                    width: '40%'
-                                            },
-                                            Age: {
-                                                    title: 'Age',
-                                                    width: '20%'
-                                            },
-                                            RecordDate: {
-                                                    title: 'Record date',
-                                                    width: '30%',
-                                                    type: 'date',
-                                                    create: false,
-                                                    edit: false
-                                            }
-                                    }
-                            });
-
-                            //Load person list from server
-                            $('#PeopleTableContainer').jtable('load');
-
-                    });
-
-            </script>
+            echo $this->pagination->create_links();
+            ?>
+</div>
 
 
 
@@ -182,18 +146,18 @@
 
             <a class="w-toplink" href="#"><i class="fa fa-angle-up"></i></a>
 
-             <script type="text/javascript" src="/js/mediaelement-and-player.js"></script>
-        <script type="text/javascript" src="/js/jquery.easing.min.js"></script>
-        <script type="text/javascript" src="/js/jquery.isotope.js"></script>
-        <script type="text/javascript" src="/js/jquery.magnific-popup.js"></script>
-        <script type="text/javascript" src="/js/jquery.horparallax.js"></script>
-        <script type="text/javascript" src="/js/jquery.parallax.js"></script>
-        <script type="text/javascript" src="/slick/slick.min.js"></script>
-        <script type="text/javascript" src="/js/imagesloaded.js"></script>
-        <script type="text/javascript" src="/js/waypoints.min.js"></script>
-        <script type="text/javascript" src="/js/responsive.js"></script>
-        <script type="text/javascript" src="/js/plugins.js"></script>
-        <script type="text/javascript" src="/js/us.widgets.js"></script>
+            <script type="text/javascript" src="js/mediaelement-and-player.js"></script>
+            <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+            <script type="text/javascript" src="js/jquery.isotope.js"></script>
+            <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+            <script type="text/javascript" src="js/jquery.horparallax.js"></script>
+            <script type="text/javascript" src="js/jquery.parallax.js"></script>
+            <script type="text/javascript" src="slick/slick.min.js"></script>
+            <script type="text/javascript" src="js/imagesloaded.js"></script>
+            <script type="text/javascript" src="js/waypoints.min.js"></script>
+            <script type="text/javascript" src="js/responsive.js"></script>
+            <script type="text/javascript" src="js/plugins.js"></script>
+            <script type="text/javascript" src="js/us.widgets.js"></script>
 
     </body>
 </html>

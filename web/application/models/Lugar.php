@@ -80,6 +80,20 @@ class Lugar extends CI_Model {
        
         return $this->db->insert_id();
      }
+
+        public function Actualizar(){
+                $data = array(
+                    'Nombre' => $this->nombre,
+                    'Riesgo' => $this->riesgo,
+                    'Cordenada' => $this->cordenada,
+                    'Direccion' => $this->direccion
+                );
+                $this->db->insert('lugar', $data);  
+
+                return $this->db->insert_id();
+             }
 }
 
 ?>
+?>
+

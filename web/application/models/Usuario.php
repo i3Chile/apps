@@ -95,7 +95,7 @@ class Usuario extends CI_Model {
         $sw = 0;
         foreach ($query->result() as $row) {
             $sw = 1;
-            echo 
+             
             $this->session->set_userdata('rut', $row->Rut);
         }
 

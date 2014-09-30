@@ -83,12 +83,40 @@ class Actividad extends CI_Model {
         ;
     }
     
-   public function Ver() {
-       $this->db->where ('RutUsuario' , $this->rut) ;
-       $query = $this->db->get('actividad');
-       return $query;
-   }
+    public function Ver($num,$offset) {
+        $this->db->where('RutUsuario', $this->rut);
+        $query = $this->db->get('actividad', $num, $offset);
+        return $query;
+    }
 
+    public function contar() {
+        $this->db->where('RutUsuario', $this->rut);
+        $query = $this->db->get('actividad');
+        return $query->num_rows();
+    }
+
+    public function orden($id, $orden) {
+        $this->db->order_by($id ,'desc');
+        $query = $this->db->get('Actividad');
+        
+        return $query;
+    }
+    
+    
+    public function Actualizar() {
+
+        $data = array(
+            'Nombre' => $this->nombre,
+            'Fecha' => $this->fecha,
+            'Riesgo' => $this->riesgo,
+            'IDlugar' => $this->lugar               
+        );
+
+        $this->db->where('ID', $this->id);
+        $this->db->update('actividad', $data);
+        
+    }
 }
+    
 
 ?>
